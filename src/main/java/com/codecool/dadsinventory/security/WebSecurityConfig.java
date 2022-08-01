@@ -18,6 +18,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/", "index", "/css/*", "/js/*",
+                        "/webjars/jquery/3.0.0/*", "/webjars/bootstrap/4.3.1/*/*")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
