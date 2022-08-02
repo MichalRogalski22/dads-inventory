@@ -30,6 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "index", "/css/*", "/js/*",
                         "/webjars/jquery/3.0.0/*", "/webjars/bootstrap/4.3.1/*/*")
                 .permitAll()
+                .antMatchers("/search", "/item/details/*").hasRole(ApplicationUserRole.DAD.name())
+                .antMatchers("/home/privacy").hasRole(ApplicationUserRole.MOM.name())
                 .anyRequest()
                 .authenticated()
                 .and()
